@@ -4,12 +4,13 @@ public class Main {
         System.out.println("_______Задача №1_______");
         int goal = 2459000;
         short payment = 15000;
-        int sum = 0;
+        double sum = 0;
         int month = 0;
         int monthInYear = 12;
         float percentPerYear = 0.12f;
         while (sum < goal) {
-            sum += (int) (sum * (percentPerYear / monthInYear) + payment);
+            sum += payment;
+            sum += sum * (percentPerYear / monthInYear);
             month += 1;
             System.out.println("Месяц " + month + ", сумма накоплений равна c годовой ставкой 12% " + sum + " рублей.");
         }
@@ -88,16 +89,15 @@ public class Main {
         System.out.println();
 
         System.out.println("_______Задача №8_______");
+        int yearSeeing = 0;
+        int period = 79;
         int startYear = 2024;
         int firstYear = startYear - 200;
         int lastYear = startYear + 100;
-        while (firstYear % 79 != 0) {
-            firstYear++;
+        for (int year2 = yearSeeing; year2 < lastYear; year2 += period) {
+            if (year2 > firstYear) {
+                System.out.println(year2);
+            }
         }
-        while (firstYear < lastYear) {
-            System.out.println(firstYear);
-            firstYear += 79;
-        }
-
     }
 }

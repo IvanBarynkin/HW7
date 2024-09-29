@@ -5,11 +5,13 @@ public class Main {
         int goal = 2459000;
         short payment = 15000;
         int sum = 0;
-        int month;
+        int month = 0;
+        int monthInYear = 12;
+        float percentPerYear = 0.12f;
         while (sum < goal) {
-            sum += payment;
-            month = sum / payment;
-            System.out.println("Месяц " + month + ", сумма накполений равна " + sum + " рублей.");
+            sum += (int) (sum * (percentPerYear / monthInYear) + payment);
+            month += 1;
+            System.out.println("Месяц " + month + ", сумма накоплений равна c годовой ставкой 12% " + sum + " рублей.");
         }
         System.out.println();
 
@@ -40,9 +42,10 @@ public class Main {
 
         int sumTwo = 15000;
         short monthTwo = 0;
+        float percentPerMonth = 1.07f;
         while (sumTwo < 12000000) {
             monthTwo += 1;
-            sumTwo = (int) (sumTwo * 1.07f);
+            sumTwo = (int) (sumTwo * percentPerMonth);
             System.out.println("Месяц " + monthTwo + ", сумма накполений равна " + sumTwo + " рублей.");
         }
         System.out.println();
@@ -52,7 +55,7 @@ public class Main {
         short monthThree = 0;
         while (sumThree < 12000000) {
             monthThree += 1;
-            sumThree = (int) (sumThree * 1.07f);
+            sumThree = (int) (sumThree * percentPerMonth);
             if (monthThree % 6 == 0) {
                 System.out.println("Месяц " + monthThree + ", сумма накполений равна " + sumThree + " рублей.");
             }
@@ -66,7 +69,7 @@ public class Main {
         byte monthsInYears = 12;
         while (monthFour < years * monthsInYears) {
             monthFour += 1;
-            sumFour = (int) (sumFour * 1.07f);
+            sumFour = (int) (sumFour * percentPerMonth);
             if (monthFour % 6 == 0) {
                 System.out.println("Месяц " + monthFour + ", сумма накполений равна " + sumFour + " рублей.");
             }
@@ -75,22 +78,23 @@ public class Main {
 
         System.out.println("_______Задача №7_______");
         int friday = 4;
-        for (int l = friday; l <= 31; l++) {
-            if ((l - friday) % 7 == 0) {
+        int daysInMonth = 31;
+        final int daysInWeek = 7;
+        for (int l = friday; l <= daysInMonth; l++) {
+            if ((l - friday) % daysInWeek == 0) {
                 System.out.println("Сегондя пятница, " + l + "-е число. Необходимо подготовить отчет.");
             }
         }
         System.out.println();
 
         System.out.println("_______Задача №8_______");
-        int startYear = 2053;
-        int m = 0;
-        int firstYear;
-        while ((startYear - 200 + m) % 79 != 0) {
-            m++;
+        int startYear = 2024;
+        int firstYear = startYear - 200;
+        int lastYear = startYear + 100;
+        while (firstYear % 79 != 0) {
+            firstYear++;
         }
-        firstYear = startYear - 200 + m;
-        while (firstYear < startYear + 100) {
+        while (firstYear < lastYear) {
             System.out.println(firstYear);
             firstYear += 79;
         }

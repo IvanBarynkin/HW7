@@ -87,6 +87,7 @@ public class Main {
         }
         System.out.println();
 
+
         System.out.println("_______Задача №8_______");
         int startYear = 2024;
         int firstYear = startYear - 200;

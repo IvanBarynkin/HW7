@@ -2,17 +2,18 @@ public class Main {
     public static void main(String[] args) {
 
         System.out.println("_______Задача №1_______");
-        int goal = 2459000;
+        int goal = 2_459_000;
         short payment = 15000;
         double sum = 0;
-        int month = 0;
+        int month = 1;
         int monthInYear = 12;
-        float percentPerYear = 0.12f;
+        double percentPerYear = 12f;
+        double percentFactor = 1+(percentPerYear/monthInYear)/100;
         while (sum < goal) {
             sum += payment;
-            sum += sum * (percentPerYear / monthInYear);
-            month += 1;
-            System.out.println("Месяц " + month + ", сумма накоплений равна c годовой ставкой 12% " + sum + " рублей.");
+            sum = sum * percentFactor;
+            System.out.printf("Месяц %d, сумма накоплений равна %.2f рублей.\n", month, sum);
+            month ++;
         }
         System.out.println();
 
